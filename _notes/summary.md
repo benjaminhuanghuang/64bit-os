@@ -10,6 +10,7 @@
         boot
           header.asm        # magic data will be included to OS, bootloader can understand
           main.asm          # entry point of the OS
+    intf                    # interface, .h files
   target
     x86_64                  # build config for x86
       linker.ld             # link config
