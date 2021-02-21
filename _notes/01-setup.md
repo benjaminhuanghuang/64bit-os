@@ -3,10 +3,10 @@
 https://www.youtube.com/watch?v=FkrpUaGThTQ&list=PLZQftyCk7_SeZRitx5MjBKzTtvk0pHMtp&ab_channel=CodePulse
 
 
-Create the build env based on randomdude/gcc-cross-x86_64-elf
+## gcc building tools in Docker
+Create the build env based on randomdude/gcc-cross-x86_64-elf, which holds all the gcc compilation tools
 
-which holds all the gcc compilation tools
-
+The grub package is for building the final iso
 
 Build docker image
 ```
@@ -29,7 +29,9 @@ Windows
 Now we are inside a virtual linux machine at /root/env
 
 
-## bootloader
+## bootloader 
+The bootloader find the OS on USB, HD, CD ... and start it
+
 following the multiboot2 specification
 
 计算机读取"主引导记录"前面446字节的机器码之后，会运行事先安装的“启动管理器”bootloader，由用户选择启动哪个内核，之后就会载入内核，将控制权交给内核。GNU GRUB（GRand Unified Bootloader）就是一种bootloader，满足多重引导规范（The Multiboot Specification），GRUB可选择操作系统分区上的不同内核
@@ -52,7 +54,7 @@ In the docker environment
 create the dist folder
 
 
-## run
+## run the iso in host environment
 In host environment (not the docker)
 ```
   qemu-system-x86_64 -cdrom dist/x86_64/kernel.iso
